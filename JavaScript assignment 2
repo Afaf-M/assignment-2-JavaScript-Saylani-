@@ -1,0 +1,88 @@
+Q1 answer
+function createAdder(numberToAdd) {
+  return function(number) {
+    let sum = number + numberToAdd;
+    console.log(`The sum of ${number} after adding ${numberToAdd} is ${sum}.`);
+    return sum;
+  }
+}
+
+let addEight = createAdder(8);
+let result = addEight(10);
+console.log(result); // Output: 18
+
+Q2, answer
+Assuming that the array has 10 given names. Every time a name starts with F console will display true. If not found it will display false. 
+
+function searchForName(names, letter) {
+  // Base case: the array is empty
+  if (names.length === 0) {
+    console.log(false);
+    return false;
+  }
+
+  // Check if the first name starts with the letter 'F'
+  if (names[0][0] === 'F') {
+    console.log(true);
+    return true;
+  }
+
+  // Recursive case: Call the function again with the remaining names
+  const found = searchForName(names.slice(1), letter);
+  console.log(found);
+  return found;
+}
+
+// Example usage
+const names = ['Farah', 'Amir', 'Fareeha', 'Fahad', 'Muzammil', 'Farzana', 'Fabeeha', 'Faisal', 'Umar', 'Ayesha'];
+const found = searchForName(names, 'F');
+console.log(found); // true
+
+Q4 answer
+Assuming the the text is string in unordered list
+
+function addListItem(text, listSelector) {
+  let list = document.querySelector(listSelector);
+  let listItem = document.createElement('li');
+  listItem.textContent = text;
+  list.appendChild(listItem);
+}
+
+Q5 answer
+function changeBackgroundColor(element, color) {
+  element.style.backgroundColor = color;
+}
+// *Also like this *
+///let pakistanElement = document.getElementById('Pakistan');
+changeBackgroundColor(pakistanElement, 'blue');
+
+Q6 answer
+let myObject = { name: 'Jinnah', age: 30 };
+saveObjectToLocalStorage('myKey', myObject);
+
+Q7 answer
+function getObjectFromLocalStorage(key) {
+  const value = localStorage.getItem(key);
+  if (value) {
+    return JSON.parse(value);
+  }
+  return null;
+}
+ Q8 answer
+function saveObjectToLocalStorage(obj) {
+  for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+      const value = obj[key];
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  }
+  
+  const newObj = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    newObj[key] = JSON.parse(localStorage.getItem(key));
+  }
+  
+  return newObj;
+}
+ Last few questions were very difficult, I had to take lots of help from the internet.
